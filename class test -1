@@ -1,0 +1,64 @@
+5)	Find the LCM and GCD of n numbers?
+
+import java.util.Scanner;
+public class LCM_GCD {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the count of numbers: ");
+        int count = scanner.nextInt();
+        int[] numbers = new int[count];
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < count; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+        int gcdResult = findGCD(numbers);
+        int lcmResult = findLCM(numbers);
+        System.out.println("GCD of the numbers: " + gcdResult);
+        System.out.println("LCM of the numbers: " + lcmResult); scanner.close();
+    } 
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return findGCD(b, a % b);
+    } 
+    public static int findGCD(int[] numbers) {
+        int result = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            result = findGCD(result, numbers[i]);
+        }
+        return result;
+    }
+
+    public static int findLCM(int a, int b) {
+        return (a * b) / findGCD(a, b);
+    }
+
+    public static int findLCM(int[] numbers) {
+        int result = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            result = findLCM(result, numbers[i]);
+        }
+        return result;
+    }
+}
+
+
+6)	Write a program to print Right Triangle Star Pattern?
+  
+  import java.util.Scanner;
+public class RightTriangleStarPattern {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt(); 
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println(); 
+        }
+
+        scanner.close();
+    }
+}
